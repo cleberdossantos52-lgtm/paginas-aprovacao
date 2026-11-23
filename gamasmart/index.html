@@ -13,12 +13,12 @@
    PICTURE: a grade 3×3 do mês e o carrossel que desliza como no Instagram
    COLOUR and TYPE: creme + tinta, vermelho da marca nos destaques, vermelho só no ponto de foco; Hanken Grotesk
    LAYOUT: sidebar fixa à esquerda, feed centrado com muito respiro, visualizador sobreposto */
-:root{color-scheme:light dark;
+:root{color-scheme:light;
   --bg:light-dark(#f4f0e9,#141312);--ink:light-dark(#1c1a17,#eee8de);--mute:light-dark(#6f685e,#a39b8f);
   --line:light-dark(#e2dbcf,#2b2926);--soft:light-dark(#ece6dc,#1c1b19);
   --accent:light-dark(#d8352a,#e8574c);--accent-ink:#f4f0e9;--accent-soft:light-dark(#d8352a12,#e8574c1f);
   --red:#d8352a;--ease:cubic-bezier(.22,.61,.36,1);--side:264px}
-:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+:root[data-theme=light],:root[data-theme=dark]{color-scheme:light}
 *{box-sizing:border-box;min-width:0}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Hanken Grotesk",system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
