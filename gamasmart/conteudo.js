@@ -1,4 +1,4 @@
-/* Gama Smart · Novembro de 2026 — gerado a partir do ClickUp (Feed I Gama Smart I Novembro) */
+/* Gama Smart · Novembro de 2026 — puxado do ClickUp (Feed I Gama Smart I Novembro) em 23/11/2026 */
 window.CONTEUDO = {
   "cliente": "Gama Smart",
   "mes": "Novembro de 2026",
