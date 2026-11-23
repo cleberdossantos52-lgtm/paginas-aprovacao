@@ -18,7 +18,7 @@
   --line:light-dark(#e2dbcf,#2b2926);--soft:light-dark(#ece6dc,#1c1b19);
   --accent:light-dark(#d8352a,#e8574c);--accent-ink:#f4f0e9;--accent-soft:light-dark(#d8352a12,#e8574c1f);
   --red:#d8352a;--ease:cubic-bezier(.22,.61,.36,1);--side:264px}
-:root[data-theme=light],:root[data-theme=dark]{color-scheme:light}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:light}
 *{box-sizing:border-box;min-width:0}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Hanken Grotesk",system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
@@ -104,7 +104,7 @@ svg.i .d{fill:var(--red);stroke:none}
 .viewer.open .vbox{opacity:1;transform:none}
 .x{position:fixed;top:18px;right:18px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#f4f0e9;color:#1c1a17;z-index:3;box-shadow:0 6px 20px #0003}
 .x svg.i{width:20px;height:20px}
-.media{--r:1;position:relative;flex:none;align-self:flex-start;background:#0d0b0a;aspect-ratio:var(--r);width:min(680px,calc((100vh - 56px) * var(--r)),calc(100vw - 500px))}
+.media{--r:1;position:relative;flex:none;align-self:flex-start;background:var(--soft);aspect-ratio:var(--r);width:min(680px,calc((100vh - 56px) * var(--r)),calc(100vw - 500px))}
 .media img,.media video{width:100%;height:100%;object-fit:contain}
 .car{position:absolute;inset:0;overflow:hidden;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab}
 .car:active{cursor:grabbing}
@@ -338,6 +338,8 @@ function renderMedia(p){
     car.addEventListener("pointermove",e=>{if(!drag)return;dx=e.clientX-x0;if((slide===0&&dx>0)||(slide===n-1&&dx<0))dx/=3;tr.style.transform=`translateX(${-slide*w+dx}px)`});
     const end=()=>{if(!drag)return;drag=false;tr.style.transition="";const v=Math.abs(dx)/Math.max(1,performance.now()-t0);if(Math.abs(dx)>w*.18||(v>.45&&Math.abs(dx)>24))goTo(slide+(dx<0?1:-1));else goTo(slide)};
     car.addEventListener("pointerup",end);car.addEventListener("pointercancel",end);
+  }else if(p.tipo==="reel"&&!p.video){
+    M.innerHTML=vis(p.capa,p.rotulo,true);
   }else if(p.tipo==="reel"){
     M.innerHTML=`<video playsinline controls preload="none"${p.video?` src="${esc(p.video)}"`:""}></video><button class="cover" aria-label="Reproduzir reel">${vis(p.capa,"",true)}<span class="pl"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z"/></svg></span></button><div class="vnote">O vídeo deste reel ainda não foi enviado. Ele toca aqui assim que estiver pronto.</div>`;
     const c=M.querySelector(".cover"),vd=M.querySelector("video");
